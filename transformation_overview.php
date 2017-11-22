@@ -32,6 +32,7 @@ foreach ($types['mimetype'] as $key => $mimetype) {
     }
 
 }
+//creates arrays filled with the transformation type and the description of such, to be used in the following foreach statements
 $transformation_types = array(
     'transformation', 'input_transformation'
 );
@@ -45,6 +46,7 @@ $th = array(
 );
 ?>
 <br />
+<!--creates a table and populates them based on each transformation made with a description of the changes made-->
 <?php foreach ($transformation_types as $ttype) { ?>
     <a name="<?php echo $ttype; ?>"></a>
     <h2><?php echo $label[$ttype] ?></h2>
@@ -56,6 +58,7 @@ $th = array(
     </tr>
     </thead>
     <tbody>
+        <!-- fetches the description by key and populates the table with entries based on all keys-->
     <?php
     foreach ($types[$ttype] as $key => $transform) {
         $desc = Transformations::getDescription($types[$ttype . '_file'][$key]);
